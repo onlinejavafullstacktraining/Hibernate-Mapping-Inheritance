@@ -5,23 +5,29 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class HibernateManyToOne {
+public class CategoryMain {
     public static void main(String[] args) {
         Configuration configuration = new Configuration();
-        configuration.addResource("Bid.hbm.xml");
-        configuration.addResource("Item.hbm.xml");
+        configuration.addResource("Category.hbm.xml");
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
+        Category parent=new Category();
+        parent.setCategoryName("Electronics");
 
-        Bid bid = new Bid();
-        bid.setDescription("752.47");
-        Item item = new Item();
-        item.setItemName("Mobile phones");
-        item.addBid(bid);
-        bid.setItem(item);
-        session.save(item);
+        Category CellPhones=new Category();
+        CellPhones.setCategoryName("Cell Phones");
+        parent.addChildCategory(CellPhones);
+
+        Category Computer=new Category();
+        Computer.setCategoryName("Computer");
+        parent.addChildCategory(Computer);
+
+        session.save(parent);
         tx.commit();
         session.close();
+
+
+
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--Package name should be changed based on Table Inheritance-->
+<hibernate-mapping package="com.hibernate.many_to_one">
+    <class name="Category" table="CATEGORY">
+        <id name="id" column="CATEGORY_ID">
+            <generator class="increment"></generator>
+        </id>
+        <property name="categoryName" column="CATEGORY_NAME"/>
+        <many-to-one
+                name="parentCategory"
+                class="Category"
+                column="PARENT_CATEGORY_ID"
+                cascade="none"/>
+        <set
+                name="childCategories"
+                table="CATEGORY"
+                cascade="save-update"
+                inverse="true">
+            <key column="PARENT_CATEGORY_ID"/>
+            <one-to-many class="Category"/>
+        </set>
+
+    </class>
+</hibernate-mapping>
