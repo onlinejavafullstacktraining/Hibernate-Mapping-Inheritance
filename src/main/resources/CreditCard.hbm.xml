@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.Table_per_concrete">
+    <class
+            name="CreditCard"
+            table="CREDIT_CARD">
+        <id
+                name="id"
+                column="CREDIT_CARD_ID">
+            <generator class="increment"/>
+        </id>
+        <property
+                name="expMonth"
+                column="CREDIT_CARD_EXP_MONTH"/>
+        <property
+                name="expYear"
+                column="CREDIT_CARD_EXP_YEAR"/>
+        <property
+                name="type"
+                column="CREDIT_CARD_TYPE"/>
+        <property
+                name="billingDetailsType"
+                column="BILLING_DETAILS_TYPE"/>
+        <property
+                name="number"
+                column="BILLING_DETAILS_NUMBER"/>
+        <property
+                name="createdDate"
+                column="BILLING_DETAILS_CREDIT_CARD"/>
+    </class>
+</hibernate-mapping>
