@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.many_to_one">
+    <class
+            name="Bid"
+            table="BID">
+        <id
+                name="id"
+                column="BID_ID">
+            <generator class="increment"/>
+        </id>
+        <property
+                name="description"
+                column="DESCRIPTION"/>
+        <many-to-one
+                name="item"
+                column="ITEM_ID"
+                class="Item"
+                not-null="true"/>
+
+    </class>
+</hibernate-mapping>
+
