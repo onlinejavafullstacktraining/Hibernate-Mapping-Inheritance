@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.Table_per_class_hierarchy">
+    <class
+            name="BillingDetails"
+            table="BILLING_DETAILS" discriminator-value="BD">
+        <id
+                name="id"
+                column="BILLING_DETAILS_ID">
+            <generator class="increment"/>
+        </id>
+        <discriminator column="BILLING_DETAILS_TYPE" type="string"></discriminator>
+
+        <property
+                name="number"
+                column="BILLING_DETAILS_NUMBER"/>
+        <property
+                name="createdDate"
+                column="BILLING_DETAILS_CREATED_DATE"/>
+        <subclass name="CreditCard" discriminator-value="CC">
+            <property
+                    name="expMonth"
+                    column="CREDIT_CARD_EXP_MONTH"/>
+            <property
+                    name="expYear"
+                    column="CREDIT_CARD_EXP_YEAR"/>
+            <property
+                    name="type"
+                    column="CREDIT_CARD_TYPE"/>
+        </subclass>
+    </class>
+
+</hibernate-mapping>
