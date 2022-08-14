@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.one_to_one">
+	<class name="User" table="USER1">
+		<id name="id" column="USER_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="userName" column="USER_NAME" type="string"></property>
+		<one-to-one name="address" class="Address" cascade="save-update"></one-to-one>
+		<!-- <component name="homeAddress" class="com.spring.hibernate.Address">
+			<property name="street" type="string" column="HOME_STREET"></property>
+			<property name="city" type="string" column="HOME_CITY"></property>
+			<property name="zipcode" type="string" column="HOME_ZIP_CODE"></property>
+		</component>
+
+		<component name="billingAddress" class="com.spring.hibernate.Address">
+			<property name="street" type="string" column="BILING_STREET"
+				></property>
+			<property name="city" type="string" column="BILING_CITY" 
+				></property>
+			<property name="zipcode" type="string"
+				column="BILING_ZIP_CODE" ></property>
+		</component> -->
+	</class>
+</hibernate-mapping>
