@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 public class CategoryMain {
     public static void main(String[] args) {
         Configuration configuration = new Configuration();
-        configuration.addResource("Category.hbm.xml");
+        configuration.addResource("Category_Many_to_one.hbm.xml");
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();

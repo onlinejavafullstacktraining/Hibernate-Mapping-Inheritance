@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.many_to_many">
+	<class name="Category" table="CATEGORY">
+		<id name="id" column="CATEGORY_ID" type="long">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="CATEGORY_NAME"></property>
+		<many-to-one name="parentCategory" column="PARENT_CATEGORY_ID"
+			cascade="all"></many-to-one>
+		<set name="items"  cascade="save-update" table="CATEGORY_ITEMS" lazy="true">
+			<key column="CATEGORY_ID"/>
+		<many-to-many class="Item" column="ITEM_ID"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="com.hibernate.many_to_many">
+<hibernate-mapping package="com.hibernate.many_to_one">
     <class
             name="Bid"
             table="BID">
@@ -12,7 +12,7 @@
             <generator class="increment"/>
         </id>
         <property
-                name="bidDescription"
+                name="description"
                 column="DESCRIPTION"/>
         <many-to-one
                 name="item"

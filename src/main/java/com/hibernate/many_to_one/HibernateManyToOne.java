@@ -8,8 +8,8 @@ import org.hibernate.cfg.Configuration;
 public class HibernateManyToOne {
     public static void main(String[] args) {
         Configuration configuration = new Configuration();
-        configuration.addResource("Bid.hbm.xml");
-        configuration.addResource("Item.hbm.xml");
+        configuration.addResource("Bid_many_to_one.hbm.xml");
+        configuration.addResource("Item_Many_to_one.hbm.xml");
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
